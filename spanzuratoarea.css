@@ -1,0 +1,94 @@
+/* stilizarea literelor de pe tastatura */
+#letter{
+    border: 2px solid black;
+    height: 55px;
+    width: 55px;
+    font-size: 25px;
+    background-color: #3dd180;
+}
+
+#letter:hover{
+    opacity: 0.5;
+}
+
+/* stilizare tastatura */
+#row{
+    display: flex;
+    text-align: center;
+    column-gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.keywords{
+    margin-top: 25px;
+}
+
+/* stilizare bara de navigare */
+#nav-bar{
+    margin-left: 45px;
+}
+
+.header{
+    background-color: black;
+}
+
+h3{
+    color:  #5cdb95;
+    margin-left: 50px;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+ul li{
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+}
+
+ul:hover a{
+    color: gray;
+}
+
+ul:hover a:hover{
+    color: #3dd180;
+    box-shadow: 0 2px 0 0 currentColor;
+}
+
+/* stilizare spanzuratoare */
+.image{
+    border: 2px solid black;
+    width: 500px;
+    height: 400px;
+    margin-top: 20px;
+    margin-left: 480px;
+}
+
+#spanzuratoare{
+    margin-top: 50px;
+    margin-left: 100px;
+}
+
+/* stilizare buton */
+#buton{
+    font-size: 20px;
+    color: #5cdb95;
+    background-color: black;
+    height: 50px;
+    width: 100px;
+    margin-left: 670px;
+    margin-top: 20px;
+}
+
+
