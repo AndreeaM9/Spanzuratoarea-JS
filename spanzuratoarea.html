@@ -4,7 +4,7 @@
         <link href="spanzuratoarea.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv = "Content-Type" content = "text/html; charset = UTF-8" />
     </head>
 
@@ -21,27 +21,26 @@
             </nav>
             <hr>
         </div>
-
-        <div class="word">
-
-        </div>
-
         <div class="image">
             <!-- Am utilizat aplicatia Boxy SVG ca sa pot desena spanzuratoarea. Este inserata pe elemente, nu ca imagine, ca sa poata genera 
             bucatile ca vieti pentru joc -->
 <svg viewBox="115.544 98.848 274.822 307.919" width="274.822" height="307.919" id="spanzuratoare">
-  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.82 98.848 L 136.82 406.767"></path>
-  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.229 98.848 L 331.265 99.439"></path>
-  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 98.848 L 330.674 117.76"></path>
-  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 115.544 406.176 L 164.007 406.176"></path>
-  <ellipse id="id6" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="330.674" cy="147.606" rx="30.142" ry="29.255"></ellipse>
-  <path id="id5" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 177.453 L 331.856 293.883"></path>
-  <path id="id4"  style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 332.447 293.883 L 286.939 364.805"></path>
-  <path id="id3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 293.292 L 380.91 364.805"></path>
-  <path id="id2" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.856 232.417 L 390.366 163.268"></path>
-  <path id="id1" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 232.417 L 266.844 167.996"></path>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.82 98.848 L 136.82 406.767"></path>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.229 98.848 L 331.265 99.439"></path>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 98.848 L 330.674 117.76"></path>
+    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 115.544 406.176 L 164.007 406.176"></path>
+    <!-- Om -->
+    <ellipse id="id6" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="330.674" cy="147.606" rx="30.142" ry="29.255"></ellipse>
+    <path id="id5" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 177.453 L 331.856 293.883"></path>
+    <path id="id4"  style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 332.447 293.883 L 286.939 364.805"></path>
+    <path id="id3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 293.292 L 380.91 364.805"></path>
+    <path id="id2" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.856 232.417 L 390.366 163.268"></path>
+    <path id="id1" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 232.417 L 266.844 167.996"></path>
 </svg>
         </div>
+
+        <!-- Afisare litere span din js -->
+        <div id="user-input-section"></div>
 
         <div class="keywords">
             <!-- tastatura jocului -->
@@ -77,12 +76,12 @@
             <button id="letter">N</button>
             <button id="letter">M</button>
             </div>
-                </div>
-                    </div>
-            
+        </div>
                     <!-- butonul din footer -->
-                    <button id="buton">Refresh <i class="fa fa-refresh"></i></button>
-
+                    <!-- Modificare id butoane pentru centrare -->
+                    <div id="buton">
+                        <button id="buton1"">Refresh <i class="fa fa-refresh"></i></button>
+                    </div>
         <script type="text/javascript" src="spanzuratoarea.js"></script>
     </body>
 </html>
