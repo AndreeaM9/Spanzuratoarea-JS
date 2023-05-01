@@ -98,12 +98,16 @@ ul:hover a:hover{
     margin-left: auto;
     margin-right: auto;
 }
+#buton1:hover{
+    opacity: 0.8;
+}
 
 /* Afisare litere ca dash-uri */
 #user-input-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 1.8em;
+    margin-top: 20px;
     margin-left: 100px;
     margin-right: 100px;   
 }
