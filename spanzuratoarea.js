@@ -29,13 +29,20 @@ letters.forEach(letter => {
       let litere = this.textContent.toUpperCase();
       // Verificați dacă litera apăsată există în cuvântul generat
       if (cuvantAles.includes(litere)) {
-          console.log("Litera există: " + litere);
-          // Afișați litera în locul corespunzător în interfața utilizatorului
+        console.log("Litera există: " + litere);
+  
+        // Afișați litera în locul corespunzător în interfața utilizatorului
+        let spans = inputSection.getElementsByClassName("dash");
+        for (let i = 0; i < cuvantAles.length; i++) {
+          if (cuvantAles[i] === litere) {
+            spans[i].textContent = litere;
+          }
+        }
       } else {
-          console.log("Litera nu există: " + litere);
-          // Incrementați numărul de greșeli și afișați rezultatul în interfața utilizatorului
-      }
-    });
+        console.log("Litera nu există: " + litere);
+        // Incrementați numărul de greșeli și afișați rezultatul în interfața utilizatorului
+      }
+    });
   });
 
 
