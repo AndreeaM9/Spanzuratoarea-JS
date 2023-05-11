@@ -23,16 +23,6 @@ document.querySelector('.keywords').onclick = function(event) {
 let cuvantAles = cuvinte[Math.floor(Math.random() * cuvinte.length)];
 cuvantAles = cuvantAles.toUpperCase();
 
-function onLoad(){
-    onReset();
-    btn.addEventListener('click', onReset);//refresh pagina la apasare pe buton
-}
-
-//Resetare desen la refresh pagina
-function onReset(){
-    photo.querySelectorAll('[id]')
-        .forEach(x => x.style.display="none");
-}
 
 
 //Aparitiile literelor de pe poz.0 si length-1
@@ -54,10 +44,20 @@ function writeWord(cuvantAles){
 arataLitera = cuvantAles.replace(/./g, '<span class="dash">_</span>');
 
 // Afisare
-inputSection.innerHTML = litera;
+inputSection.innerHTML = arataLitera;
 
 document.addEventListener('DOMContentLoaded', onLoad); //resetare pagina la fiecare deschidere in browser
  
  let maxGreseli = 6;
 
+ function onLoad(){
+    onReset();
+    btn.addEventListener('click', onReset);//refresh pagina la apasare pe buton
+}
+
+//Resetare desen la refresh pagina
+function onReset(){
+    photo.querySelectorAll('[id]')
+        .forEach(x => x.style.display="none");
+}
 
