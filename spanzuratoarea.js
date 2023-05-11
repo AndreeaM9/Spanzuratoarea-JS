@@ -1,23 +1,43 @@
 const inputSection = document.getElementById("user-input-section");
 const photo = document.getElementById("spanzuratoare");
-const letters = document.getElementById("letter");
+// const letters = document.getElementById("letter");
 const btn = document.getElementById("buton1");
 
 let cuvinte = ["Rinocer", "Taur", "Floare", "Septembrie", "Masinarie", "Avalansa"];
 
-document.querySelector('.keywords').onclick = function(event) {
-    // La fiecare apasare returneaza litera apasata
-    let a = event.target.innerHTML;
-    let litere = cuvinte[0].split("")
-    toUpper = function(litere) {
-        return litere.toUpperCase()
-    }
-    // Transformare litere cuvant, s-ar putea sa nu avem nevoie de el mai incolo
-    litere = litere.map(toUpper)
-    if(litere.includes(a)) {
-        console.log("Ieii")
-    }
-}
+let maxGreseli = 6;
+
+let letters = document.querySelectorAll('#letter');
+
+
+// document.querySelector('.keywords').onclick = function(event) {
+//     // La fiecare apasare returneaza litera apasata
+//     let a = event.target.innerHTML;
+//     let litere = cuvinte[0].split("")
+//     toUpper = function(litere) {
+//         return litere.toUpperCase()
+//     }
+//     // Transformare litere cuvant, s-ar putea sa nu avem nevoie de el mai incolo
+//     litere = litere.map(toUpper)
+//     if(litere.includes(a)) {
+//         console.log("Ieii")
+//     }
+// }
+
+letters.forEach(letter => {
+    letter.addEventListener('click', function(event) {
+      let litere = this.textContent.toUpperCase();
+      // Verificați dacă litera apăsată există în cuvântul generat
+      if (cuvantAles.includes(litere)) {
+          console.log("Litera există: " + litere);
+          // Afișați litera în locul corespunzător în interfața utilizatorului
+      } else {
+          console.log("Litera nu există: " + litere);
+          // Incrementați numărul de greșeli și afișați rezultatul în interfața utilizatorului
+      }
+    });
+  });
+
 
 // Alegere cuvant random
 let cuvantAles = cuvinte[Math.floor(Math.random() * cuvinte.length)];
@@ -26,18 +46,18 @@ cuvantAles = cuvantAles.toUpperCase();
 
 
 //Aparitiile literelor de pe poz.0 si length-1
-function writeWord(cuvantAles){
-    let litera;
-    cuvantAles.split('').forEach((l,i) =>{
+// function writeWord(cuvantAles){
+//     let litera;
+//     cuvantAles.split('').forEach((l,i) =>{
     
-        if(i == 0 || i == cuvantAles.length-1) {
-            litera.textContent = l;
-        }
-    else 
-        litera.k = l;
-        letters.appendChild(litera);
-    });
-};
+//         if(i == 0 || i == cuvantAles.length-1) {
+//             litera.textContent = l;
+//         }
+//     else 
+//         litera.k = l;
+//         letters.appendChild(litera);
+//     });
+// };
 
 
 // Inlocuire litera cu span ce contine ( _ ) 
@@ -48,7 +68,7 @@ inputSection.innerHTML = arataLitera;
 
 document.addEventListener('DOMContentLoaded', onLoad); //resetare pagina la fiecare deschidere in browser
  
- let maxGreseli = 6;
+
 
  function onLoad(){
     onReset();
