@@ -9,7 +9,7 @@ let maxGreseli = 6;
 
 let letters = document.querySelectorAll('#letter');
 
-paragarf.textContent = `Ai gresit! Mai ai ${maxGreseli} incercari.`
+paragarf.textContent = `Ai 6 incercari pentru a castiga!`;
 
 
 // document.querySelector('.keywords').onclick = function(event) {
@@ -31,8 +31,7 @@ letters.forEach(letter => {
       let litere = this.textContent.toUpperCase();
       // Verificați dacă litera apăsată există în cuvântul generat
       if (cuvantAles.includes(litere)) {
-        console.log("Litera există: " + litere);
-  
+        // console.log("Litera există: " + litere);
         // Afișați litera în locul corespunzător în interfața utilizatorului
         let spans = inputSection.getElementsByClassName("dash");
         for (let i = 0; i < cuvantAles.length; i++) {
@@ -41,8 +40,14 @@ letters.forEach(letter => {
           }
         }
       } else {
-        console.log("Litera nu există: " + litere);
+        // console.log("Litera nu există: " + litere);
         // Incrementați numărul de greșeli și afișați rezultatul în interfața utilizatorului
+        maxGreseli--;
+        paragarf.textContent = `Ai gresit! Mai ai ${maxGreseli} incercari.`
+        if(maxGreseli === 0) {
+          window.alert(`Ai pierdut! Cuvantul era ${cuvantAles}`);
+          onReset();  
+        } 
       }
     });
   });
