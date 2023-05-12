@@ -74,6 +74,12 @@ ul:hover a:hover{
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+}
+
+#paragraf{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: solid;
 }
 
 #spanzuratoare{

@@ -1,6 +1,6 @@
 const inputSection = document.getElementById("user-input-section");
 const photo = document.getElementById("spanzuratoare");
-// const letters = document.getElementById("letter");
+const paragarf = document.getElementById("paragraf");
 const btn = document.getElementById("buton1");
 
 let cuvinte = ["Rinocer", "Taur", "Floare", "Septembrie", "Masinarie", "Avalansa"];
@@ -8,6 +8,8 @@ let cuvinte = ["Rinocer", "Taur", "Floare", "Septembrie", "Masinarie", "Avalansa
 let maxGreseli = 6;
 
 let letters = document.querySelectorAll('#letter');
+
+paragarf.textContent = `Ai gresit! Mai ai ${maxGreseli} incercari.`
 
 
 // document.querySelector('.keywords').onclick = function(event) {
