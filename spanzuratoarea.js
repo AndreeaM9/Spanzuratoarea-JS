@@ -1,41 +1,51 @@
 const inputSection = document.getElementById("user-input-section");
 const photo = document.getElementById("spanzuratoare");
-const paragarf = document.getElementById("paragraf");
+const paragraf = document.getElementById("paragraf");
 const btn = document.getElementById("buton1");
 
 let cuvinte = ["Rinocer", "Taur", "Floare", "Septembrie", "Masinarie", "Avalansa"];
 
 let ghicite = 0;
 
+let mesaj = document.getElementById("mesaj");
+
 let maxGreseli = 6;
 
 let letters = document.querySelectorAll('#letter');
 
-paragarf.textContent = `Ai 6 incercari pentru a castiga!`;
+paragraf.textContent = `Ai 6 incercari pentru a castiga!`;
 
 letters.forEach(letter => {
-    letter.addEventListener('click', function(event) {
-      let litere = this.textContent.toUpperCase();
-      // Verificați dacă litera apăsată există în cuvântul generat
-      if (cuvantAles.includes(litere)) {
-        // Afișați litera în locul corespunzător în interfața utilizatorului
-        let spans = inputSection.getElementsByClassName("dash");
-        for (let i = 0; i < cuvantAles.length; i++) {
-          if (cuvantAles[i] === litere) {
-            spans[i].textContent = litere;
-            ghicite++;
-            if(ghicite == cuvantAles.length){
-              window.alert("Felicitari! Ai castigat!!!");
+  letter.addEventListener('click', function(event) {
+    let litere = this.textContent.toUpperCase();
+    // Verificați dacă litera apăsată există în cuvântul generat
+    if (cuvantAles.includes(litere)) {
+      // Afișați litera în locul corespunzător în interfața utilizatorului
+      let spans = inputSection.getElementsByClassName("dash");
+      let isAlreadyGuessed = false; // Verificare suplimentară pentru a vedea dacă litera a fost deja ghicită
+      for (let i = 0; i < cuvantAles.length; i++) {
+        if (cuvantAles[i] === litere && spans[i].textContent === "_") {
+          spans[i].textContent = litere;
+          ghicite++;
+          isAlreadyGuessed = true;
+          if (ghicite === cuvantAles.length) {
+            for (let j = 0; j < cuvantAles.length; j++) {
+              spans[j].textContent = cuvantAles[j];
             }
+            mesaj.textContent = "Felicitări! Ai câștigat!!!";
+            mesaj.style.display = "block";
+            onReset();
           }
         }
+      }
       } else {
         // Incrementați numărul de greșeli și afișați rezultatul în interfața utilizatorului
         maxGreseli--;
-        paragarf.textContent = `Ai gresit! Mai ai ${maxGreseli} incercari.`
+        paragraf.textContent = `Ai gresit! Mai ai ${maxGreseli} incercari.`
         if(maxGreseli === 0) {
-          window.alert(`Ai pierdut! Cuvantul era ${cuvantAles}`);
-          onReset();  
+          mesaj.textContent = `Ai pierdut! Cuvantul era ${cuvantAles}`;
+          mesaj.style.display = "block";
+          onReset()
         } 
       }
     });
