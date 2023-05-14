@@ -15,8 +15,15 @@ let letters = document.querySelectorAll('#letter');
 
 paragraf.textContent = `Ai 6 incercari pentru a castiga!`;
 
+//Functionalitate buton <Refresh>
+btn.addEventListener("click", () => {
+  window.location.reload();
+})
+
 letters.forEach(letter => {
   letter.addEventListener('click', function(event) {
+    //dezactivare litere dupa apasare
+    letter.setAttribute("disabled", true);
     let litere = this.textContent.toUpperCase();
     // Verificați dacă litera apăsată există în cuvântul generat
     if (cuvantAles.includes(litere)) {
@@ -42,11 +49,17 @@ letters.forEach(letter => {
         // Incrementați numărul de greșeli și afișați rezultatul în interfața utilizatorului
         maxGreseli--;
         paragraf.textContent = `Ai gresit! Mai ai ${maxGreseli} incercari.`
+
         if(maxGreseli === 0) {
           mesaj.textContent = `Ai pierdut! Cuvantul era ${cuvantAles}`;
+          letters.forEach(element => {
+            element.setAttribute("disabled", true);
+          });
           mesaj.style.display = "block";
           onReset()
         } 
+
+        document.querySelector("#id" + maxGreseli).style.display = 'block';
       }
     });
   });
