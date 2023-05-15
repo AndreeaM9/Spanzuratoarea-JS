@@ -40,6 +40,9 @@ letters.forEach(letter => {
               spans[j].textContent = cuvantAles[j];
             }
             mesaj.textContent = "Felicitări! Ai câștigat!!!";
+            letters.forEach(element => {
+              element.setAttribute("disabled", true);
+            });
             mesaj.style.display = "block";
             onReset();
           }
@@ -57,6 +60,7 @@ letters.forEach(letter => {
           });
           mesaj.style.display = "block";
           onReset()
+          photo.querySelectorAll('[id]').forEach(x => x.style.display="block");
         } 
 
         document.querySelector("#id" + maxGreseli).style.display = 'block';
@@ -68,23 +72,6 @@ letters.forEach(letter => {
 // Alegere cuvant random
 let cuvantAles = cuvinte[Math.floor(Math.random() * cuvinte.length)];
 cuvantAles = cuvantAles.toUpperCase();
-
-
-
-//Aparitiile literelor de pe poz.0 si length-1
-// function writeWord(cuvantAles){
-//     let litera;
-//     cuvantAles.split('').forEach((l,i) =>{
-    
-//         if(i == 0 || i == cuvantAles.length-1) {
-//             litera.textContent = l;
-//         }
-//     else 
-//         litera.k = l;
-//         letters.appendChild(litera);
-//     });
-// };
-
 
 // Inlocuire litera cu span ce contine ( _ ) 
 arataLitera = cuvantAles.replace(/./g, '<span class="dash">_</span>');
