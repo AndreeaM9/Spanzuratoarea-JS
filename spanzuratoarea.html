@@ -1,92 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Spanzuratoarea Game</title>
-        <link href="spanzuratoarea.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta charset = "utf-8">
-    </head>
 
-    <body>
+<head>
+    <title>Spanzuratoarea Game</title>
+    <link href="spanzuratoarea.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+</head>
 
-        <div class="header">
-            <h3>SPÂNZURĂTOAREA</h3>
-            <!-- meniul -->
-            <nav id="nav-bar">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">JOCURI</a></li>
-                </ul>
-            </nav>
-            <hr>
-        </div>
-        <div class="image">
-            <!-- Am utilizat aplicatia Boxy SVG ca sa pot desena spanzuratoarea. Este inserata pe elemente, nu ca imagine, ca sa poata genera 
+<body>
+    <div class="header">
+        <h3>SPÂNZURĂTOAREA</h3>
+    <!-- meniul -->
+        <nav id="nav-bar">
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">JOCURI</a></li>
+        </ul>
+        </nav>
+    <hr>
+  </div>
+  <div class="image">
+    <!-- Am utilizat aplicatia Boxy SVG ca sa pot desena spanzuratoarea. Este inserata pe elemente, nu ca imagine, ca sa poata genera 
             bucatile ca vieti pentru joc -->
-<svg viewBox="115.544 98.848 274.822 307.919" width="274.822" height="307.919" id="spanzuratoare">
-    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.82 98.848 L 136.82 406.767"></path>
-    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.229 98.848 L 331.265 99.439"></path>
-    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 98.848 L 330.674 117.76"></path>
-    <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 115.544 406.176 L 164.007 406.176"></path>
-    <!-- Om -->
-    <ellipse id="id5" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="330.674" cy="147.606" rx="30.142" ry="29.255"></ellipse>
-    <path id="id4" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 177.453 L 331.856 293.883"></path>
-    <path id="id3"  style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 332.447 293.883 L 286.939 364.805"></path>
-    <path id="id2" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 293.292 L 380.91 364.805"></path>
-    <path id="id1" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.856 232.417 L 390.366 163.268"></path>
-    <path id="id0" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 232.417 L 266.844 167.996"></path>
-</svg>
+    <svg viewBox="115.544 98.848 274.822 307.919" width="274.822" height="307.919" id="spanzuratoare">
+        <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.82 98.848 L 136.82 406.767"></path>
+        <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 136.229 98.848 L 331.265 99.439"></path>
+        <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 98.848 L 330.674 117.76"></path>
+        <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 115.544 406.176 L 164.007 406.176"></path>
+      <!-- Om -->
+        <ellipse id="id5" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="330.674" cy="147.606" rx="30.142" ry="29.255"></ellipse>
+        <path id="id4" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 330.083 177.453 L 331.856 293.883"></path>
+        <path id="id3" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 332.447 293.883 L 286.939 364.805"></path>
+        <path id="id2" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 293.292 L 390.366 364.805"></path> 
+        <path id="id1" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.856 232.417 L 390.366 163.268"></path>
+        <path id="id0" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 331.265 232.417 L 266.844 167.996"></path>
+    </svg>
     <p id="paragraf"></p>
-        </div>
 
-        <!-- Mesaj castigator sau nu -->
-        <div id="mesaj" style="display: none;"></div>
-
-        <!-- Afisare litere span din js -->
-        <div id="user-input-section"></div>
-
-        <div class="keywords">
-            <!-- tastatura jocului -->
-            <div id="row">
-            <button id="letter">Q</button>
-            <button id="letter">W</button>
-            <button id="letter">E</button>
-            <button id="letter">R</button>
-            <button id="letter">T</button>
-            <button id="letter">Y</button>
-            <button id="letter">U</button>
-            <button id="letter">I</button>
-            <button id="letter">O</button>
-            <button id="letter">P</button> 
+    </div>
+    <!-- Mesaj castigator sau nu -->
+    <div id="mesaj" style="display: none;"></div>
+    <!-- Afisare litere span din js -->
+    <div id="user-input-section"></div>
+    <div class="keywords">
+        <!-- tastatura jocului -->
+        <div id="row">
+            <button class="letter">Q</button>
+            <button class="letter">W</button>
+            <button class="letter">E</button>
+            <button class="letter">R</button>
+            <button class="letter">T</button>
+            <button class="letter">Y</button>
+            <button class="letter">U</button>
+            <button class="letter">I</button>
+            <button class="letter">O</button>
+            <button class="letter">P</button>
             </div> <br>
-            <div id="row">
-            <button id="letter">A</button>
-            <button id="letter">S</button>
-            <button id="letter">D</button>
-            <button id="letter">F</button>
-            <button id="letter">G</button>
-            <button id="letter">H</button>
-            <button id="letter">J</button>
-            <button id="letter">K</button>
-            <button id="letter">L</button>
-            </div> <br>
-            <div id="row">
-            <button id="letter">Z</button>
-            <button id="letter">X</button>
-            <button id="letter">C</button>
-            <button id="letter">V</button>
-            <button id="letter">B</button>
-            <button id="letter">N</button>
-            <button id="letter">M</button>
-            </div>
+        <div id="row">
+            <button class="letter">A</button>
+            <button class="letter">S</button>
+            <button class="letter">D</button>
+            <button class="letter">F</button>
+            <button class="letter">G</button>
+            <button class="letter">H</button>
+            <button class="letter">J</button>
+            <button class="letter">K</button>
+            <button class="letter">L</button>
+        </div> <br>
+        <div id="row">
+            <button class="letter">Z</button>
+            <button class="letter">X</button>
+            <button class="letter">C</button>
+            <button class="letter">V</button>
+            <button class="letter">B</button>
+            <button class="letter">N</button>
+            <button class="letter">M</button>
         </div>
-                    <!-- butonul din footer -->
-                    <!-- Modificare id butoane pentru centrare -->
-                    <div id="buton">
-                        <button id="buton1">Refresh <i class="fa fa-refresh"></i></button>
-                    </div>
-        <script type="text/javascript" src="spanzuratoarea.js"></script>
-    </body>
+    </div>
+    <!-- butonul din footer -->
+    <!-- Modificare id butoane pentru centrare -->
+    <div id="buton">
+        <button id="buton1">Refresh <i class="fa fa-refresh"></i></button>
+    </div>
+    <script type="text/javascript" src="spanzuratoarea.js"></script>
+</body>
 </html>
