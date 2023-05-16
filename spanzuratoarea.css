@@ -4,11 +4,18 @@
     height: 55px;
     width: 55px;
     font-size: 25px;
-  background-color: #3dd180;
+    background-color: #3dd180;
 }
 
-#letter:hover {
-  opacity: 0.5;
+.letter:hover {
+  /* opacity: 0.5; */
+  background-color: #000;
+  color: #5cdb95;
+}
+
+.letter:disabled {
+  background-color: #000;
+  color: #5cdb95;
 }
 
 /* Stilizare tastatura */
@@ -40,6 +47,7 @@ h3 {
   padding-top: 10px;
 }
 
+
 a {
   color: white;
   text-decoration: none;
@@ -48,7 +56,7 @@ a {
 
 ul {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   list-style-type: none;
 }
 
@@ -64,8 +72,9 @@ ul:hover a {
 ul:hover a:hover {
   color: #3dd180;
   box-shadow: 0 2px 0 0 currentColor;
+  /* Acest lucru aplică un efect de umbră casetă pentru legături atunci când atât elementele <ul>, cât și <a> sunt plasate peste. 
+  Umbra casetei apare ca o linie înaltă de 2 pixeli sub text, folosind culoarea curentă a textului ca culoare a umbrei. */
 }
-
 /* Stilizare spanzuratoare */
 .image {
   border: 2px solid black;

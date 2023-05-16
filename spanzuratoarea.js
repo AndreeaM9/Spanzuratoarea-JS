@@ -87,3 +87,4 @@ function onLoad() {
   btn.addEventListener("click", onReset); // Refresh pagina la apăsare pe buton
 }
 
+  
