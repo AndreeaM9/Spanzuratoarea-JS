@@ -163,4 +163,7 @@ ul:hover a:hover {
   background-color: black;
   color: #85f1b5;
   font-size: 20px;
+  height: 25px;
+  width: auto;
+  padding: 10px;
 }

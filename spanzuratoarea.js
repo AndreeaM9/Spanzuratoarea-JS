@@ -101,8 +101,8 @@ function onLoad() {
 
 let hintsMap = {
   "RINOCER": "Are un corn mare si ascutit",
-  "TAUR": "Are ceva cu rosu",
-  "FLOARE": "Pe care se pune albina",
+  "TAUR": "Animal și zodie",
+  "FLOARE": "Ceva pe care se pune albina",
   "SEPTEMBRIE": "Prima luna din toamna",
   "MASINARIE": "Totalitatea pieselor care alcatuiesc mecanismul unei masini",
   "AVALANSA": "Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit"
