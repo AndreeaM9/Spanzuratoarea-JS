@@ -44,6 +44,9 @@ letters.forEach(letter => {
             mesaj.textContent = "Felicitări! Ai câștigat!!!";
             mesaj.style.display = "block";
             arataHint.style.display = "none";
+            letters.forEach(element => {
+              element.setAttribute("disabled", true);
+            });
             onReset();
           }
         }

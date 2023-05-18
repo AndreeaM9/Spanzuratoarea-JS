@@ -157,3 +157,10 @@ ul:hover a:hover {
   width: 200px;
   text-align: center;
 }  
+
+#indiciu{
+  border: 2px solid black;
+  background-color: black;
+  color: #85f1b5;
+  font-size: 20px;
+}
