@@ -91,6 +91,21 @@ ul:hover a:hover {
   text-decoration: solid;
 }
 
+/* #indiciu {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-decoration: solid;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 2; 
+} */
+
+.hidden {
+  display: none;
+}
+
 #spanzuratoare {
   margin-top: 50px;
   margin-left: 100px;
@@ -102,7 +117,7 @@ ul:hover a:hover {
   display: flex;
 }
 
-#buton1 {
+#buton1, #hint {
   justify-content: center;
   font-size: 20px;
   color: #5cdb95;

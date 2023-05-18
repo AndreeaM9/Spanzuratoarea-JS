@@ -7,6 +7,8 @@ let ghicite = 0;
 let mesaj = document.getElementById("mesaj");
 let maxGreseli = 6;
 let letters = document.querySelectorAll('.letter');
+let hint = document.getElementById("hint");
+let arataHint = document.getElementById("indiciu");
 
 // Alegere cuvânt random
 let cuvantAles = cuvinte[Math.floor(Math.random() * cuvinte.length)];
@@ -41,6 +43,7 @@ letters.forEach(letter => {
             }
             mesaj.textContent = "Felicitări! Ai câștigat!!!";
             mesaj.style.display = "block";
+            arataHint.style.display = "none";
             onReset();
           }
         }
@@ -55,6 +58,7 @@ letters.forEach(letter => {
 
       if(maxGreseli === 0) {
         mesaj.textContent = `Ai pierdut! Cuvantul era ${cuvantAles}`;
+        arataHint.style.display = "none";
         letters.forEach(element => {
           element.setAttribute("disabled", true);
         });
@@ -87,4 +91,26 @@ function onLoad() {
   btn.addEventListener("click", onReset); // Refresh pagina la apăsare pe buton
 }
 
-  
+// hint.onclick = function() {
+//   hints = ['Are un corn mare si ascutit', 'Are ceva cu rosu', 'Pe care se pune albina', 'Prima luna din toamna', 'Totalitatea pieselor care alcatuiesc mecanismul unei masini', 'Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit'];
+//   arataHint.innerHTML = "Indiciu: - " + hints[cuvinte.indexOf(cuvantAles.toLowerCase())];
+// }
+
+let hintsMap = {
+  "RINOCER": "Are un corn mare si ascutit",
+  "TAUR": "Are ceva cu rosu",
+  "FLOARE": "Pe care se pune albina",
+  "SEPTEMBRIE": "Prima luna din toamna",
+  "MASINARIE": "Totalitatea pieselor care alcatuiesc mecanismul unei masini",
+  "AVALANSA": "Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit"
+};
+
+hint.onclick = function() {
+  arataHint.innerHTML = "Indiciu: " + hintsMap[cuvantAles];
+}
+
+// Adăugați un eveniment de clic butonului de hint
+hint.addEventListener("click", function() {
+  // Comutați clasa "hidden" pentru a ascunde/afișa hint-ul
+  arataHint.classList.toggle("hidden");
+});
