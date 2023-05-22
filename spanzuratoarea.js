@@ -3,12 +3,16 @@ const photo = document.getElementById("spanzuratoare");
 const paragraf = document.getElementById("paragraf");
 const btn = document.getElementById("buton1");
 let cuvinte = ["Rinocer", "Taur", "Floare", "Septembrie", "Masinarie", "Avalansa"];
+let cuvUsoare = []
 let ghicite = 0;
 let mesaj = document.getElementById("mesaj");
 let maxGreseli = 6;
 let letters = document.querySelectorAll('.letter');
 let hint = document.getElementById("hint");
 let arataHint = document.getElementById("indiciu");
+let easy = document.getElementById("easy");
+let medium = document.getElementById("medium");
+let hard = document.getElementById("hard");
 
 // Alegere cuvânt random
 let cuvantAles = cuvinte[Math.floor(Math.random() * cuvinte.length)];
@@ -94,23 +98,27 @@ function onLoad() {
   btn.addEventListener("click", onReset); // Refresh pagina la apăsare pe buton
 }
 
+
+// let hintsMap = {
+//   "RINOCER": "Are un corn mare si ascutit",
+//   "TAUR": "Animal și zodie",
+//   "FLOARE": "Ceva pe care se pune albina",
+//   "SEPTEMBRIE": "Prima luna din toamna",
+//   "MASINARIE": "Totalitatea pieselor care alcatuiesc mecanismul unei masini",
+//   "AVALANSA": "Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit"
+// };
+
 // hint.onclick = function() {
-//   hints = ['Are un corn mare si ascutit', 'Are ceva cu rosu', 'Pe care se pune albina', 'Prima luna din toamna', 'Totalitatea pieselor care alcatuiesc mecanismul unei masini', 'Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit'];
-//   arataHint.innerHTML = "Indiciu: - " + hints[cuvinte.indexOf(cuvantAles.toLowerCase())];
+//   arataHint.innerHTML = "Indiciu: " + hintsMap[cuvantAles];
 // }
 
-let hintsMap = {
-  "RINOCER": "Are un corn mare si ascutit",
-  "TAUR": "Animal și zodie",
-  "FLOARE": "Ceva pe care se pune albina",
-  "SEPTEMBRIE": "Prima luna din toamna",
-  "MASINARIE": "Totalitatea pieselor care alcatuiesc mecanismul unei masini",
-  "AVALANSA": "Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit"
-};
-
 hint.onclick = function() {
-  arataHint.innerHTML = "Indiciu: " + hintsMap[cuvantAles];
+  let randomIndex = Math.floor(Math.random() * cuvantAles.length);
+  let hintLetter = cuvantAles.charAt(randomIndex);
+  arataHint.innerHTML = "Indiciu: " + hintLetter;
+  hint.setAttribute('disabled', true);
 }
+
 
 // Adăugați un eveniment de clic butonului de hint
 hint.addEventListener("click", function() {

@@ -167,3 +167,17 @@ ul:hover a:hover {
   width: auto;
   padding: 10px;
 }
+
+#levels{
+  color: #5cdb95;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -50px;
+  margin-right: 80px;
+}
+
+.level:hover{
+  color: white;
+  cursor: pointer;
+}
+
