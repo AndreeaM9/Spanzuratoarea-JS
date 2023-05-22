@@ -9,7 +9,6 @@ let mesaj = document.getElementById("mesaj");
 let maxGreseli = 6;
 let letters = document.querySelectorAll('.letter');
 let hint = document.getElementById("hint");
-let arataHint = document.getElementById("indiciu");
 let easy = document.getElementById("easy");
 let medium = document.getElementById("medium");
 let hard = document.getElementById("hard");
@@ -25,7 +24,7 @@ btn.addEventListener("click", () => {
   window.location.reload();
 });
 
-letters.forEach(letter => {
+letters.forEach((letter, index) => {
   letter.addEventListener('click', function(event) {
     // Dezactivare litere după apăsare
     letter.setAttribute("disabled", true);
@@ -41,15 +40,19 @@ letters.forEach(letter => {
           spans[i].textContent = litere;
           ghicite++;
           isAlreadyGuessed = true;
-          if (ghicite === cuvantAles.length) {
+          if (ghicite === cuvantAles.length - 1) {
             for (let j = 0; j < cuvantAles.length; j++) {
-              spans[j].textContent = cuvantAles[j];
+              if (spans[j].textContent === "_") {
+                spans[j].textContent = cuvantAles[j];
+                ghicite++;
+              }
             }
             mesaj.textContent = "Felicitări! Ai câștigat!!!";
             mesaj.style.display = "block";
-            arataHint.style.display = "none";
-            letters.forEach(element => {
-              element.setAttribute("disabled", true);
+            letters.forEach((element, elementIndex) => {
+              if (elementIndex !== index) {
+                element.setAttribute("disabled", true);
+              }
             });
             onReset();
           }
@@ -63,16 +66,17 @@ letters.forEach(letter => {
       maxGreseli--;
       paragraf.textContent = `Ai greșit! Mai ai ${maxGreseli} încercări.`;
 
-      if(maxGreseli === 0) {
+      if (maxGreseli === 0) {
         mesaj.textContent = `Ai pierdut! Cuvantul era ${cuvantAles}`;
-        arataHint.style.display = "none";
-        letters.forEach(element => {
-          element.setAttribute("disabled", true);
+        letters.forEach((element, elementIndex) => {
+          if (elementIndex !== index) {
+            element.setAttribute("disabled", true);
+          }
         });
         mesaj.style.display = "block";
-        onReset()
-        photo.querySelectorAll('[id]').forEach(x => x.style.display="block");
-      } 
+        onReset();
+        photo.querySelectorAll('[id]').forEach(x => x.style.display = "block");
+      }
 
       document.querySelector("#id" + maxGreseli).style.display = 'block';
     }
@@ -80,8 +84,16 @@ letters.forEach(letter => {
 });
 
 
+
 // Inlocuire litera cu span ce conține ( _ ) 
-const arataLitera = cuvantAles.replace(/./g, '<span class="dash">_</span>');
+let arataLitera = "";
+for (let i = 0; i < cuvantAles.length; i++) {
+  if (cuvantAles[i] === " ") {
+    arataLitera += " "; // Adaugă spațiu în cazul în care litera este un spațiu
+  } else {
+    arataLitera += `<span class="dash" id="letter${i + 1}">_</span>`; // Generează elementul <span> pentru fiecare literă
+  }
+}
 
 // Afisare
 inputSection.innerHTML = arataLitera;
@@ -108,20 +120,55 @@ function onLoad() {
 //   "AVALANSA": "Cantitate de zapada ce aluneca de pe munte si este un eveniment nedorit"
 // };
 
-// hint.onclick = function() {
-//   arataHint.innerHTML = "Indiciu: " + hintsMap[cuvantAles];
-// }
+
+
+let litereAfișate = [];
+let spans = inputSection.getElementsByClassName("dash"); // Mutare aici pentru a asigura inițializarea corectă
+
+let hintLetterIndices = []; // Adăugăm un array pentru a stoca indicii literelor corespunzătoare hint-ului
 
 hint.onclick = function() {
-  let randomIndex = Math.floor(Math.random() * cuvantAles.length);
-  let hintLetter = cuvantAles.charAt(randomIndex);
-  arataHint.innerHTML = "Indiciu: " + hintLetter;
-  hint.setAttribute('disabled', true);
-}
+  let availableLetters = cuvantAles.split('').filter(litera => !litereAfișate.includes(litera));
+  if (availableLetters.length > 0) {
+    let randomIndex = Math.floor(Math.random() * availableLetters.length);
+    hintLetter = availableLetters[randomIndex]; // Inițializăm variabila aici cu valoarea aleasă
 
 
-// Adăugați un eveniment de clic butonului de hint
-hint.addEventListener("click", function() {
-  // Comutați clasa "hidden" pentru a ascunde/afișa hint-ul
-  arataHint.classList.toggle("hidden");
-});
+    // Verificăm dacă litera se repetă în cuvânt
+    hintLetterIndices = [];
+    for (let i = 0; i < cuvantAles.length; i++) {
+      if (cuvantAles[i] === hintLetter) {
+        hintLetterIndices.push(i);
+      }
+    }
+
+    // Afișăm litera în locul potrivit în interfață pentru fiecare index
+    hintLetterIndices.forEach(index => {
+      let hintSpan = document.getElementById("letter" + (index + 1));
+      hintSpan.textContent = hintLetter;
+    });
+
+    hint.setAttribute('disabled', true);
+    litereAfișate.push(hintLetter);
+
+    // Dezactivăm butonul corespunzător hint-ului
+    // hintButton.setAttribute('disabled', true);
+
+     // Verificăm dacă este ultima literă de ghicit
+     if (ghicite === cuvantAles.length - hintLetterIndices.length) {
+      for (let j = 0; j < cuvantAles.length; j++) {
+        if (spans[j].textContent === "_") {
+          spans[j].textContent = cuvantAles[j];
+          ghicite++;
+        }
+      }
+      mesaj.textContent = "Felicitări! Ai câștigat!!!";
+      mesaj.style.display = "block";
+      letters.forEach(element => {
+        element.setAttribute("disabled", true);
+      });
+      onReset();
+    }
+  }
+};
+
